@@ -1,0 +1,80 @@
+body {
+    color: Black;
+    align-content: center;
+    text-align: left;
+    background-color: bisque;
+}
+#messageTurn{
+    align-content: center;
+    text-align: center;
+}
+#endGame{
+    align-content: center;
+    text-align: center;
+}
+.selected{
+    border: solid aqua 1px;
+}
+span:hover{
+    cursor: pointer;
+}
+span{
+    margin: 5px;
+}
+span.held{
+    border: red solid 1px;
+    pointer-events: none;
+}
+span.chicken{
+    display: block;
+    background-color: black;
+    background-image: url("images/chicken.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+span.tank{
+    display: block;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("images/tank.png");
+    pointer-events: none;
+}
+span.cow{
+    display: block;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("images/cow.png");
+}
+span.human{
+    display: block;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("images/human.png");
+}
+span.raygun{
+    display: block;
+    background-color: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("images/raygun.png");
+}
+
+#dice-area{
+    display: flex;
+    flex-flow: row;
+    flex-direction: row;
+}
+#Dice-holder{
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+}
+
