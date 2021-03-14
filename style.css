@@ -13,60 +13,59 @@ body {
     text-align: center;
 }
 .selected{
-    border: solid aqua 2px;
+    border: solid aqua 3px;
 }
 span:hover{
     cursor: pointer;
 }
+span.held{
+    border: red solid 3px;
+    pointer-events: none;
+}
 span{
     margin: 5px;
 }
-span.held{
-    border: red solid 1px;
-    pointer-events: none;
-}
 span.chicken{
-    display: block;
     background-color: black;
+    display: block;
     background-image: url("images/chicken.png");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 span.tank{
-    display: block;
     background-color: black;
+    display: block;
+    background-image: url("images/tank.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("images/tank.png");
     pointer-events: none;
 }
 span.cow{
-    display: block;
     background-color: black;
+    display: block;
+    background-image: url("images/cow.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("images/cow.png");
 }
 span.human{
-    display: block;
     background-color: black;
+    display: block;
+    background-image: url("images/human.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("images/human.png");
 }
 span.raygun{
-    display: block;
     background-color: black;
+    display: block;
+    background-image: url("images/raygun.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url("images/raygun.png");
 }
-
 #diceArea{
     display: flex;
     flex-flow: row;
@@ -74,7 +73,7 @@ span.raygun{
 }
 #diceHolder{
     display: flex;
-    flex-direction: row;
     flex-flow: row;
+    flex-direction: row;
 }
 
