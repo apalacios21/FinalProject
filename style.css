@@ -1,10 +1,10 @@
 body {
+    background-color: bisque;
     color: Black;
     align-content: center;
     text-align: left;
-    background-color: bisque;
 }
-#messageTurn{
+#message{
     align-content: center;
     text-align: center;
 }
@@ -13,7 +13,7 @@ body {
     text-align: center;
 }
 .selected{
-    border: solid aqua 1px;
+    border: solid aqua 2px;
 }
 span:hover{
     cursor: pointer;
@@ -67,12 +67,12 @@ span.raygun{
     background-image: url("images/raygun.png");
 }
 
-#dice-area{
+#diceArea{
     display: flex;
     flex-flow: row;
     flex-direction: row;
 }
-#Dice-holder{
+#diceHolder{
     display: flex;
     flex-direction: row;
     flex-flow: row;

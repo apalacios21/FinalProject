@@ -1,31 +1,27 @@
 $(document).ready(function (){
+    let cowCount = 0;
     let humanCount = 0;
     let chickenCount = 0;
-    let cowCount = 0;
-    let finalCountHuman = 0;
     let finalCountCows = 0;
+    let finalCountHumans = 0;
     let finalCountChickens = 0;
-    let rollCount = 2;
     let diceArray = [];
-    buildGame();
-    $("button#reRoll").click(reRoll);
-    $("button#endTurn").click(endTurn);
-    $("button#Start").click(startTurn);
+    let rollCount = 2;
 
-    function buildGame(){
-        $("button#Start").hide();
+    makeGame();
+    $("button#reroll").click(reroll);
+    $("button#endturn").click(endTurn);
+    $("button#start").click(startTurn);
+
+    function makeGame(){
+        $("button#start").hide();
         for(let i = 0; i < 13; i++){
-            createDice();
+            makeDice();
         }
 
     }
-    function randomDieFace(){
-        let diceImage = ["chicken","cow","human","raygun","tank"];
-        let randomNum = Math.floor((Math.random() * 5) + 1);
-        return diceImage[randomNum - 1];
-    }
-    function createDice(){
-        let board = $("div#dice-area");
+    function makeDice(){
+        let board = $("div#diceArea");
         let dice = $("<span>");
         let sqrWidth = Math.round(window.innerWidth/(5+2))
         let sqrHeight = Math.round(window.innerHeight/(5+2));
@@ -37,6 +33,11 @@ $(document).ready(function (){
         dice.addClass(randomDieFace());
         dice.addClass("unselected");
         dice.click(holdAndUnHold);
+    }
+    function randomDieFace(){
+        let diceImg = ["chicken","cow","human","raygun","tank"];
+        let randomNum = Math.floor((Math.random() * 5) + 1);
+        return diceImg[randomNum - 1];
     }
     function holdAndUnHold(){
         let clicked = $(this);
@@ -50,11 +51,11 @@ $(document).ready(function (){
             clicked.addClass("selected");
         }
     }
-    function reRoll(){
-        reRollAll();
+    function reroll(){
+        rerollAll();
         rollCount--;
     }
-    function reRollAll() {
+    function rerollAll() {
         $("span").each(function () {
             let i = $(this);
             if (i.hasClass("cow")) {
@@ -95,19 +96,20 @@ $(document).ready(function (){
                 }
             }
         });
+        $("p#cowCount").text(`Cows: ${cowCount}`);
         $("p#humanCount").text(`Humans: ${humanCount}`);
         $("p#chickenCount").text(`Chickens: ${chickenCount}`);
-        $("p#cowCount").text(`Cows: ${cowCount}`);
+
         if(rollCount === 0){
-            $("button#reRoll").hide();
+            $("button#reroll").hide();
         }
     }
     function endTurn(){
-        $("button#endTurn").hide();
-        $("button#reRoll").hide();
+        $("button#endturn").hide();
+        $("button#reroll").hide();
 
         if(lost()){
-            $("p#messageTurn").text(`GAME OVER`);
+            $("p#message").text(`GAME OVER`);
         }else{
             $("span").each(function () {
                 let i = $(this);
@@ -137,15 +139,16 @@ $(document).ready(function (){
             });
             finalCountChickens += chickenCount;
             finalCountCows += cowCount;
-            finalCountHuman += humanCount;
-            $("p#humanCount").text(`Human Counter: ${humanCount}`);
-            $("p#chickenCount").text(`Chicken Counter: ${chickenCount}`);
-            $("p#cowCount").text(`Cow Counter: ${cowCount}`);
-            $("p#messageTurn").text(`Nice Job! You've collected ${humanCount} humans and ${cowCount} cows
+            finalCountHumans += humanCount;
+            $("p#cowCount").text(`Cows: ${cowCount}`);
+            $("p#humanCount").text(`Humans: ${humanCount}`);
+            $("p#chickenCount").text(`Chickens: ${chickenCount}`);
+
+            $("p#message").text(`Nice Job! You've collected ${humanCount} humans and ${cowCount} cows
         and ${chickenCount} chickens!`);
         }
-        $("button#Start").show();
-        if(finalCountChickens > 0 && finalCountCows > 0 && finalCountHuman >0){
+        $("button#start").show();
+        if(finalCountChickens > 0 && finalCountCows > 0 && finalCountHumans >0){
             endGame();
         }
     }
@@ -178,11 +181,11 @@ $(document).ready(function (){
             chickenCount = 0;
         }
         rollCount = 2;
-        $("button#reRoll").show();
-        $("button#endTurn").show();
-        $("button#Start").hide();
-        $("div#dice-area").empty();
-        $("p#messageTurn").empty();
-        buildGame();
+        $("button#reroll").show();
+        $("button#endturn").show();
+        $("button#start").hide();
+        $("div#diceArea").empty();
+        $("p#message").empty();
+        makeGame();
     }
 });
